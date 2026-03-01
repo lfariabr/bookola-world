@@ -17,10 +17,10 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-8">
           {[
             { href: '/shop', label: 'Shop' },
-            { href: '/shop?category=children', label: "Children's" },
-            { href: '/shop?category=christian', label: 'Christian' },
-            { href: '/shop?category=law-of-attraction', label: 'Manifest' },
-            { href: '/shop?category=diaries', label: 'Diaries' },
+            { href: '/shop/personalized-gifts-for-kids', label: "Children's" },
+            { href: '/shop/christian-books', label: 'Christian' },
+            { href: '/shop/manifestation-journals', label: 'Manifest' },
+            { href: '/shop/custom-diaries', label: 'Diaries' },
           ].map(({ href, label }) => (
             <Link key={href} href={href} className="animated-link font-body text-sm font-bold tracking-widest uppercase text-deep-navy/70 hover:text-deep-navy transition-colors">
               {label}
@@ -50,10 +50,10 @@ export default function Navbar() {
         <div className="md:hidden bg-cream border-t border-parchment px-6 py-6 flex flex-col gap-4">
           {[
             { href: '/shop', label: 'All Books' },
-            { href: '/shop?category=children', label: "Children's Books" },
-            { href: '/shop?category=christian', label: 'Christian Values' },
-            { href: '/shop?category=law-of-attraction', label: 'Law of Attraction' },
-            { href: '/shop?category=diaries', label: 'Diaries' },
+            { href: '/shop/personalized-gifts-for-kids', label: "Children's Books" },
+            { href: '/shop/christian-books', label: 'Christian Values' },
+            { href: '/shop/manifestation-journals', label: 'Law of Attraction' },
+            { href: '/shop/custom-diaries', label: 'Diaries' },
           ].map(({ href, label }) => (
             <Link key={href} href={href} onClick={() => setOpen(false)}
               className="font-body font-bold tracking-widest uppercase text-sm text-deep-navy/70 hover:text-gold transition-colors">

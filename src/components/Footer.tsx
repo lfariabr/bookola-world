@@ -25,10 +25,10 @@ export default function Footer() {
             <h4 className="font-display text-white text-lg mb-4">Shop</h4>
             <ul className="space-y-3 text-sm">
               {[
-                { href: '/shop?category=children', label: "Children's Books" },
-                { href: '/shop?category=christian', label: 'Christian Values' },
-                { href: '/shop?category=law-of-attraction', label: 'Law of Attraction' },
-                { href: '/shop?category=diaries', label: 'Diaries & Journals' },
+                { href: '/shop/personalized-gifts-for-kids', label: "Children's Books" },
+                { href: '/shop/christian-books', label: 'Christian Values' },
+                { href: '/shop/manifestation-journals', label: 'Law of Attraction' },
+                { href: '/shop/custom-diaries', label: 'Diaries & Journals' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="hover:text-gold transition-colors animated-link">{label}</Link>

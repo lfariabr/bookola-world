@@ -2,6 +2,7 @@ import { products } from '@/lib/products'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import PersonalisationForm from './PersonalisationForm'
+import BookCover from '@/components/BookCover'
 
 type Props = {
   params: { productId: string }
@@ -83,10 +84,11 @@ export default function PersonalisePage({ params }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Book Preview Panel */}
           <div>
-            <div className="bg-gradient-to-br from-parchment to-cream border-2 border-gold/20 p-12 text-center mb-6">
-              <div className="text-8xl mb-4">{product.emoji}</div>
-              <h2 className="font-display text-2xl text-deep-navy mb-1">{product.title}</h2>
-              <p className="font-body text-sm text-deep-navy/60 mb-4">{product.subtitle}</p>
+            <div className="border-2 border-gold/20 overflow-hidden mb-6" style={{ height: 340 }}>
+              <BookCover title={product.title} subtitle={product.subtitle} category={product.category} size="lg" />
+            </div>
+
+            <div className="text-center mb-6">
               <div className="font-display text-3xl text-gold">${product.price.toFixed(2)}</div>
             </div>
 

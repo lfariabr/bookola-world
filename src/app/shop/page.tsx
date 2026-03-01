@@ -4,6 +4,14 @@ import { useSearchParams } from 'next/navigation'
 import { products, categories, Category } from '@/lib/products'
 import ProductCard from '@/components/ProductCard'
 import { Suspense } from 'react'
+import Link from 'next/link'
+
+const SLUG_MAP: Record<string, string> = {
+  'children': 'personalized-gifts-for-kids',
+  'christian': 'christian-books',
+  'law-of-attraction': 'manifestation-journals',
+  'diaries': 'custom-diaries'
+}
 
 function ShopContent() {
   const searchParams = useSearchParams()
@@ -42,17 +50,13 @@ function ShopContent() {
             {categories.map(cat => {
               const count = products.filter(p => p.category === cat.id).length
               return (
-                <button
+                <Link
                   key={cat.id}
-                  onClick={() => setActiveCategory(cat.id as Category)}
-                  className={`font-body text-xs font-bold tracking-widest uppercase px-4 py-2 border transition-all ${
-                    activeCategory === cat.id
-                      ? 'bg-gold text-white border-gold'
-                      : 'border-deep-navy/20 text-deep-navy/60 hover:border-gold hover:text-gold'
-                  }`}
+                  href={`/shop/${SLUG_MAP[cat.id]}`}
+                  className={`font-body text-xs font-bold tracking-widest uppercase px-4 py-2 border transition-all border-deep-navy/20 text-deep-navy/60 hover:border-gold hover:text-gold`}
                 >
                   {cat.emoji} {cat.label} ({count})
-                </button>
+                </Link>
               )
             })}
           </div>

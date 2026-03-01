@@ -36,8 +36,8 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-cream via-parchment/40 to-cream" />
         <div className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, rgba(107,39,55,0.05) 0%, transparent 40%)`
+            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(212,137,74,0.08) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(168,91,70,0.05) 0%, transparent 40%)`
           }}
         />
 
@@ -97,8 +97,13 @@ export default function HomePage() {
             <div className="gold-divider" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {categories.map(cat => (
-              <Link key={cat.id} href={`/shop?category=${cat.id}`}
+            {[
+              { id: 'children', label: "Children's Books", emoji: '⭐', description: 'Stories starring your little one', slug: 'personalized-gifts-for-kids' },
+              { id: 'christian', label: 'Christian Values', emoji: '✝️', description: 'Faith-based books & devotionals', slug: 'christian-books' },
+              { id: 'law-of-attraction', label: 'Law of Attraction', emoji: '🌟', description: 'Manifest your best life', slug: 'manifestation-journals' },
+              { id: 'diaries', label: 'Diaries & Journals', emoji: '📖', description: 'Capture your story', slug: 'custom-diaries' },
+            ].map(cat => (
+              <Link key={cat.id} href={`/shop/${cat.slug}`}
                 className="group p-6 border border-white/10 hover:border-gold/60 hover:bg-gold/5 transition-all duration-300 text-center">
                 <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{cat.emoji}</div>
                 <div className="font-display text-white text-lg mb-1">{cat.label}</div>

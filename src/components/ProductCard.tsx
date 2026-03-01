@@ -1,22 +1,15 @@
 import Link from 'next/link'
 import { Product } from '@/lib/products'
+import BookCover from '@/components/BookCover'
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="card-hover bg-white border border-parchment overflow-hidden group">
       {/* Book cover visual */}
-      <div className="relative h-56 bg-gradient-to-br from-parchment to-cream flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(201,168,76,0.3) 10px, rgba(201,168,76,0.3) 11px)'
-          }}
-        />
-        <div className="relative text-center">
-          <div className="text-7xl mb-2 group-hover:scale-110 transition-transform duration-300">{product.emoji}</div>
-          <div className="font-display text-xs text-gold tracking-widest uppercase">{product.category.replace('-', ' ')}</div>
-        </div>
+      <div className="relative h-56 overflow-hidden group-hover:scale-[1.02] transition-transform duration-300">
+        <BookCover title={product.title} subtitle={product.subtitle} category={product.category} size="sm" />
         {product.badge && (
-          <div className="absolute top-4 right-4 bg-gold text-white text-xs font-bold tracking-widest uppercase px-3 py-1">
+          <div className="absolute top-4 right-4 bg-gold text-white text-xs font-bold tracking-widest uppercase px-3 py-1 z-10">
             {product.badge}
           </div>
         )}
