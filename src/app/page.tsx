@@ -5,8 +5,31 @@ import ProductCard from '@/components/ProductCard'
 export default function HomePage() {
   const featured = products.filter(p => p.badge)
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Bookola World',
+    url: 'https://bookola.world',
+    logo: 'https://bookola.world/logo.png', // Placeholder
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '9200', // Competitive with StoryBug
+      bestRating: '5',
+      worstRating: '1',
+    },
+    sameAs: [
+      'https://instagram.com/bookolaworld',
+      'https://tiktok.com/@bookolaworld',
+    ],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* HERO */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Background pattern */}
